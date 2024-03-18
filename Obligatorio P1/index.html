@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+		<link rel="icon" href="data:,">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="style/style.css">
+        <title>Obligatorio P1</title>
+    </head>
+    <body>
+    
+    
+    <div id="divInicial"> <!-- Menu que se ve al ingresar a la página, donde el usuario puede inicial sesión -->
+      <h2><u>Iniciar Sesión</u></h2>
+      <label for="txtUsuarioLogin">Nombre de Usuario: </label>
+      <input type="text" id="txtUsuarioLogin">
+      <br><br>
+      <label for="txtContraseñaLogin">Contraseña: </label>
+      <input type="password" id="txtContraseñaLogin">
+      <br><br>
+      <input type="button" id="btnLogin" value="Ingresar">
+      <br><br>
+      <div id="divCredencialesErroneas"></div>
+      <label>¿Todavía no tienes una cuenta?</label>
+      <input type="button" id="btnDerivarARegistro" value="Regístrate">
+      <br>
+    </div>
+    
+    
+    <div id="divRegistro"> <!-- Menu que se ve al persionar el botón de "Regístrate" -->
+      <h2><u>Registrarse</u></h2>
+      <label for="txtNombreRegistro">Nombre: </label>
+      <input type="text" id="txtNombreRegistro">
+      <br><br>
+      <label for="txtUsuarioRegistro">Nombre de Usuario: </label>
+      <input type="text" id="txtUsuarioRegistro">
+      <br><br>
+      <label for="txtContraseñaRegistro">Contraseña: </label>
+      <input type="password" id="txtContraseñaRegistro">
+      <br><br>
+      <div id="divRegistroMensaje"></div>
+      <br>
+      <input type="button" id="btnRegistrarse" value="Registrarse">
+      <input type="button" id="btnVolverADivInicial" value="Volver">
+      <br>
+    </div>
+    
+
+    <!--*********************
+    MENU LOCAL
+    *********************-->
+    
+    <div id="divMenuLocal"> <!-- Menu que se ve al ingresar con una cuenta de local -->
+      <h2><u>Menú Local</u></h2>
+      <input type="button" id="btnDisponibilidadLocal" value="Habilitar/Deshabilitar disponibilidad" style="width:300px;height:30px">
+      <br><br>
+      <input type="button" id="btnReservasLocal" value="Cambiar reservas de estado" style="width:300px;height:30px">
+      <br><br>
+      <input type="button" id="btnCuposLocal" value="Modificar cupo máximo" style="width:300px;height:30px">
+      <br><br>
+      <input type="button" id="btnEstadisticaLocal" value="Visualizar información estadística" style="width:300px;height:30px">
+      <br><br>
+      <input type="button" id="btnCerrarSesionLocal" value="Cerrar Sesión">
+      <br>
+    </div>
+    
+
+    <!--*********************
+    MENU PERSONA  
+    *********************-->
+    
+    <div id="divMenuPersona"> <!-- Menu que se ve al ingresar con una cuenta de persona -->
+      <h2><u>Menu Persona</u></h2>
+      <div id="divBienvenidaPersona"></div>
+      <br>
+      <input type="button" id="btnSolicitarPersona" value="Solicitar una reserva" style="width:300px;height:30px">
+      <br><br>
+      <input type="button" id="btnVerReservaPersona" value="Ver reservas pendientes" style="width:300px;height:30px">
+      <br><br>
+      <input type="button" id="btnCancelarReservaPersona" value="Cancelar reserva" style="width:300px;height:30px">
+      <br><br>
+      <input type="button" id="btnEstadisticaPersona" value="Visualizar información estadística" style="width:300px;height:30px">
+      <br><br>
+      <input type="button" id="btnCalificarPersona" value="Calificar reserva" style="width:300px;height:30px">
+      <br><br>
+      <input type="button" id="btnCerrarSesionPersona" value="Cerrar Sesión">
+      <br>
+    </div>
+    
+
+    <!--*********************
+    FUNCIONALIDADES LOCAL  
+    *********************-->
+
+    <div id="divDisponibilidadLocal"> <!-- Se ingresa al presionar el botón de Habilitar/Deshabilitar disponibilidad -->
+      <h2 class="titulos"><u>Habilitar/deshabilitar disponibilidad</u></h2>
+      <div id="divReservasHabilitadasLocal"></div> <!-- Al deshabilitarlas cambia "habilitadas" por "deshabilitadas" y vice versa -->
+      <br>
+      <div id="divCuposRestantes"></div> <!-- Cuando ya no hay cupos restantes el texto cambia -->
+      <br>
+      <input type="button" id="btnHabilitarDeshabilitarReservasLocal" value="Habilitar/Deshabilitar reservas">
+      <br><br>
+      <input type="button" id ="btnVolverDisponibilidadLocal" value="Volver">
+    </div>
+
+    
+    <div id="divReservasLocal"> <!-- Se ingresa al presionar el botón de Cambiar reservas de estado  -->
+      <h2 class="titulos"><u>Cambiar reservas de estado</u></h2>
+      <label for="txtBuscarCliente">Buscar reserva por cliente: </label>
+      <input type="text" placeholder="Nombre del cliente..." id="txtBuscarCliente">
+      <input type="button" id="btnBuscarCliente" value="Buscar">
+      <br><br>
+      <div id="divTablaReservasLocal">
+        <table border="1" style="width:100%">
+          <thead>
+            <tr>
+              <th>Nombre</th>
+              <th>Usuario</th>
+              <th>Estado</th>
+              <th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody id="tablaReservasLocalUsuariosEncontrados">
+          <!-- Aquí aparecen los nombres que coinciden con la búsqueda -->
+          </tbody>
+        </table>
+      </div>
+      <br>
+      <div id="divMensajeFinalReservasLocalError">No hay resultados.</div>
+      <div id="divMensajeFinalReservasLocal"></div>
+      <br>
+      <input type="button" id ="btnVolverReservasLocal" value="Volver">
+    </div>
+
+    
+    <div id="divCuposLocal"> <!-- Se ingresa al presionar el botón de Modificar cupo máximo -->
+      <h2 class="titulos"><u>Modificar cupo máximo</u></h2>
+      <label for="txtModificarCupo">Modificar cupo máximo: </label>
+      <input type="number" placeholder="Nuevo cupo..." id="txtModificarCupo">
+      <input type="button" id="btnModificarCupo" value="Ingresar">
+      <br><br>
+      <div id="divCuposLocalActual"></div>
+      <br>
+      <div id="divMensajeCuposIncorrectos"></div>
+      <br>
+      <input type="button" id ="btnVolverCuposLocal" value="Volver">
+    </div>
+    
+    
+    <div id="divEstadisticaLocal"> <!-- Se ingresa al presionar el botón de Visualizar información estadística (Local) -->
+      <h2 class="titulos"><u>Visualizar información estadística</u></h2>
+      <input type="button" value="Porcentaje de Ocupación" id="btnMostrarPorcentajeDeOcupacion">
+      <input type="button" value="Promedio de Calificaciones" id="btnMostrarPromedioDeCalificaciones">
+      <input type="button" value="Total de Reservas" id="btnMostrarTotalDeReservasRealizadas">
+      <br><br>
+      <div id="divPorcentajeDeOcupacion"></div>
+      <div id="divPromedioDeCalificaciones">
+        <p id="mensajePromedioDeCalificaciones"></p>
+        <div id="divTablaPromedioDeCalificaciones">
+          <table border="1" style="width:100%">
+            <thead>
+              <tr>
+                <th>Nombre del local</th>
+                <th>Promedio de calificaciones</th>
+              </tr>
+            </thead>
+            <tbody id="tablaPromedioDeCalificaciones">
+            <!-- Aquí aparecen los nombres que coinciden con la búsqueda -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div id="divTotalDeReservasRealizadas"></div>
+      <br>
+      <input type="button" id ="btnVolverEstadisticaLocal" value="Volver">
+    </div>
+   
+
+     <!--*********************
+      FUNCIONALIDADES PERSONA  
+      *********************-->
+
+    <div id="divSolicitarPersona"> <!-- Se ingresa al presionar el botón de Solicitar una reserva -->
+      <h2 class="titulos"><u>Solicitar una reserva</u></h2>
+      <br>
+      <div id="divTablaSolicitudDeReserva">
+        <table border="1" style="width:100%">
+          <thead>
+            <tr>
+              <th align=center>Nombre del local</th>
+              <th align=center>Cantidad de cupos disponibles</th>
+              <th align=center>Cupos a reservar</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody id="tablaLocalesParaReservarDisponibles">
+            <!-- Aquí aparecen los locales en los que se puede reservar -->
+          </tbody>
+        </table>
+      </div>
+      <br>
+      <div id="divErrorAlSolicitarReserva"></div>
+      <br>
+      <input type="button" id ="btnVolverSolicitarPersona" value="Volver">
+    </div>
+    
+    
+    <div id="divVerReservaPersona"> <!-- Se ingresa al presionar el botón de Ver reservas pendientes -->
+      <h2 class="titulos"><u>Ver reservas pendientes</u></h2>
+      <div id="divTablaReservasPendientesPersona">
+        <table border="1" style="width:100%">
+          <thead>
+            <tr>
+              <th align=center style="width:40%">Foto del local</th>
+              <th align=center style="width:30%">Nombre del local</th>
+              <th align=center style="width:30%">Cantidad de cupos reservados</th>
+            </tr>
+          </thead>
+          <tbody id="tablaVerReservasPersona">
+          <!-- Aquí aparecen los locales en los que la persona reservó -->
+          </tbody>
+        </table>
+      </div>
+      <br>
+      <input type="button" id ="btnVolverVerReservaPersona" value="Volver">
+    </div>
+    
+
+    <div id="divCancelarReservaPersona"> <!-- Se ingresa al presionar el botón de Cancelar reserva -->
+      <h2 class="titulos"><u>Cancelar reserva</u></h2>
+      <div id="divTablaCancelarReservasPersona">
+        <table border="1" style="width:100%">
+          <thead>
+            <tr>
+              <th align=center style="width:60%">Nombre del local</th>
+              <th align=center>Cantidad de cupos reservados</th>
+              <th align=center></th>
+            </tr>
+          </thead>
+          <tbody id="tablaCancelarReservasPersona">
+          <!-- Aquí aparecen los locales en los que la persona reservó -->
+          </tbody>
+        </table>
+      </div>
+      <br>
+      <div id="divNoTieneReservasPendientesCancelar"></div>
+      <br>
+      <input type="button" id ="btnVolverCancelarReservaPersona" value="Volver">
+    </div>
+    
+
+    <div id="divEstadisticaPersona"> <!-- Se ingresa al presionar el botón de Visualizar información estadística (Persona) -->
+      <h2 class="titulos"><u>Visualizar información estadística</u></h2>
+      <input type="button" value="Ver porcentaje de reservas" id="btnMostrarPorcentajeDeReservasPersona">
+      <input type="button" value="Mostrar local con más reservas" id="btnMostrarMasReservasPersona">
+      <br><br>
+      <div id="divMostrarPorcentajeDeReservasPersona">
+        <table border="1" style="width:100%">
+          <thead>
+            <tr>
+              <th>Nombre del local</th>
+              <th>Cantidad de reservas completadas</th>
+              <th>Total de reservas del local</th>
+              <th>Porcentaje de reservas que corresponden al usuario</th>
+            </tr>
+          </thead>
+          <tbody id="tablaPorcentajeDeReservas">
+          <!-- Aquí aparece el tbody -->
+          </tbody>
+        </table>
+      </div>
+      <div id="divMensajeTablaPorcentajeDeReservasPersonaVacia"></div>
+      <div id ="divMostrarMasReservasPersona">Local/es con mayor cantidad de reservas: <br><br></div>
+      <br>
+      <input type="button" id ="btnVolverEstadisticaPersona" value="Volver">
+    </div>
+    
+
+    <div id="divCalificarPersona"> <!-- Se ingresa al presionar el botón de Calificar reserva -->
+      <h2 class="titulos"><u>Calificar reserva</u></h2>
+      <div id="divTablaCalificarPersona">
+        <table border="1" style="width:100%">
+          <thead>
+            <tr>
+              <th>Nombre del local</th>
+              <th>Cantidad de cupos reservados</th>
+              <th>Puntuación (del 1 al 5)</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody id="tablaCalificarPersona">
+          <!-- Aquí aparecen los nombres que coinciden con la búsqueda -->
+          </tbody>
+        </table>
+      </div>
+      <br>
+      <div id="divMensajeReservasParaCalificar"></div>
+      <br>
+      <input type="button" id ="btnVolverCalificarPersona" value="Volver">
+    </div>
+		
+    
+    <script type="text/javascript" src="js/clases.js"></script>
+    <script type="text/javascript" src="js/script.js"></script>
+	</body>
+</html>

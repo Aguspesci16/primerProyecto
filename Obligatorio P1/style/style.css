@@ -1,0 +1,15 @@
+body {
+    background-color: rgb(223, 242, 248);
+}
+
+#divInicial, #divRegistro, #divMenuLocal, #divMenuPersona, #divDisponibilidadLocal, 
+#divReservasLocal, #divCuposLocal, #divEstadisticaLocal, #divSolicitarPersona, 
+#divVerReservaPersona, #divCancelarReservaPersona, #divEstadisticaPersona, #divCalificarPersona{
+    border: 1px solid gray;
+    border-radius: 5px;
+    text-align: justify;
+    padding: 5px;
+    margin-left: 30%;
+    margin-right: 30%;
+    margin-top: 2%;
+}
